@@ -13,8 +13,9 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model_gemini = genai.GenerativeModel("gemini-1.5-pro")
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-# client = chromadb.Client()
-client = chromadb.Client(chromadb.config.Settings(chroma_db_impl="duckdb+parquet", persist_directory=".chromadb"))
+client = chromadb.Client()
+# client = chromadb.Client(chromadb.config.Settings(chroma_db_impl="duckdb+parquet", persist_directory=".chromadb"))
+# client = chromadb.Client(chromadb.config.Settings(chroma_db_impl="duckdb+parquet", persist_directory=".chromadb"))
 
 collection = client.get_or_create_collection(name="medical_papers")
 
